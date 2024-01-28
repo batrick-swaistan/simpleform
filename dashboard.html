@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dashboard</title>
+</head>
+<body>
+
+    <header>
+        <div class="dashboard-container">
+            <h1>Dashboard</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#users">Users</a></li>
+                <li><a href="#products">Products</a></li>
+                <li  class="logout" onclick="logout()"><a href="#">Logout</a></li>
+              
+                
+
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+      
+        
+        <button onclick="addUser()">Add User</button>
+
+        <label for="filterInput">Filter:</label>
+        <input type="text" id="filterInput" oninput="filterUsers()">
+
+
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">ID</th>
+                    <th onclick="sortTable(1)">Name</th>
+                    <th onclick="sortTable(2)">Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="user-form">
+        <h2>User Form</h2>
+        <form id="userForm" onsubmit="submitUserForm(event)">
+            <label for="userName">Name:</label>
+            <input type="text" id="userName" name="userName" required>
+
+            <label for="userEmail">Email:</label>
+            <input type="email" id="userEmail" name="userEmail" required>
+
+            <label for="userAge">Age:</label>
+            <input type="number" id="userAge" name="userAge" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    <script src="script.js"></script>
+
+   
+
+</body>
+</html>
