@@ -1,30 +1,95 @@
-function validateLogin() {
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
+var users = JSON.parse(localStorage.getItem('users')) || [];
 
-    
-    if (username === 'demo' && password === 'password') {
-        
+function signup(event) {
+    event.preventDefault();
+
+    var userName = document.getElementById('signupName').value;
+    var userUsername = document.getElementById('signupUsername').value;
+    var userEmail = document.getElementById('signupEmail').value;
+    var userPassword = document.getElementById('signupPassword').value;
+
+    console.log('Signup Data:', userName, userUsername, userEmail, userPassword);
+
+    var newUser = {
+        id: users.length + 1,
+        name: userName,
+        userUsername: userUsername,
+        email: userEmail,
+        password: userPassword
+    };
+
+    users.push(newUser);
+
+
+    localStorage.setItem('users', JSON.stringify(users));
+
+    alert("Signup successful! Redirecting to login page.");
+    window.location.href = "login.html";
+}
+
+function login(event) {
+    event.preventDefault();
+
+    var loginUsernameEmail = document.getElementById('loginUsernameEmail').value;
+    var loginPassword = document.getElementById('loginPassword').value;
+
+    var user = users.find(function (user) {
+        return (user.email === loginUsernameEmail || user.userUsername === loginUsernameEmail) &&
+               user.password === loginPassword;
+    });
+
+    console.log(user);
+
+    if (user) {
+        alert('Login successful!');
         window.location.href = 'dashboard.html';
     } else {
         alert('Invalid username or password. Please try again.');
     }
 }
 
+
+// The rest of your code remains unchanged...
+
+
+
+// function login(event) {
+//     event.preventDefault();
+
+//     var loginUsernameEmail = document.getElementById('loginUsernameEmail').value;
+//     var loginPassword = document.getElementById('loginPassword').value;
+   
+//     var user = users.find(function (user) {
+//         return (user.email === loginUsernameEmail || user.name === loginUsernameEmail) &&
+//                user.password === loginPassword;
+//     });
+
+//     console.log(user)
+    
+//     if (user) {
+//         alert('Login successful!');
+        
+//         window.location.href = 'dashboard.html';
+//     } else {
+//         alert('Invalid username or password. Please try again.');
+//     }
+// }
+
 function logout() {
 
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
 }
 
 
-var users = [
-    { id: 1, name: 'John Doe', email: 'john@example.com' },
-    { id: 2, name: 'Jane Doe', email: 'jane@example.com' },
-    // Add more users as needed
-];
-
 function displayUsers(filteredUsers) {
     var tableBody = document.querySelector('#userTable tbody');
+
+    // Check if tableBody is null before accessing its properties
+    if (!tableBody) {
+        console.error('Table body element not found.');
+        return;
+    }
+
     tableBody.innerHTML = '';
 
     var usersToDisplay = filteredUsers || users;

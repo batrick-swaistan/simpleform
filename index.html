@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Login Page</title>
+    <title>Sign Up</title>
 </head>
 <body>
 
     <div class="logcontainer">
+        <div class="signup-container">
+            <h2>Sign Up</h2>
+            <form id="signupForm" onsubmit="signup(event)">
+                <label for="signupName">Name:</label>
+                <input type="text" id="signupName" name="signupName" required>
 
-        <div class="login-container">
-            <h2>Login</h2>
-            <form id="loginForm">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-    
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-    
-                <button id="loginbtn" type="button" onclick="validateLogin()">Login</button>
+                <label for="signupUsername">Username:</label>
+                <input type="text" id="signupUsername" name="signupUsername" required>
+
+                <label for="signupEmail">Email:</label>
+                <input type="email" id="signupEmail" name="signupEmail" required>
+
+                <label for="signupPassword">Password:</label>
+                <input type="password" id="signupPassword" name="signupPassword" required>
+
+                <button type="submit">Sign Up</button>
             </form>
         </div>
-
-
     </div>
 
-    
-
     <script src="script.js"></script>
+
 </body>
 </html>
