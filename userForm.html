@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="dashboard-container">
+            <h1>Dashboard</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#users">Users</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="userForm.html">User Form</a></li>
+                <li  class="logout" onclick="logout()"><a href="#">Logout</a></li>
+              
+                
+
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="box-userform">
+            <div class="box-login" id="login">
+                <div class="top-header">
+                    <h3>User Form</h3>
+                </div>
+
+                <form id="loginForm" onsubmit="submitUserForm(event)">
+
+                    <div class="input-group">
+                        <div class="input-field">
+                            <input type="text" class="input-box" id="userName" name="userName" required>
+                            <label for="userName">Name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="email" class="input-box" id="userEmail" name="userEmail" required>
+                            <label for="userEmail">E-mail</label>
+                            
+                        </div>
+                        <div class="input-field">
+                            <input type="email" class="input-box" id="userAge" name="userAge" required>
+                            <label for="userAge">Age</label>
+                            
+                        </div>
+                        
+                        <div class="input-field" id="userForm">
+                        <input type="submit" class="input-submit" value="Submit" required>
+                        </div>
+                        
+                    
+                    </div>
+                </form>
+           
+         </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

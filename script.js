@@ -1,19 +1,67 @@
+
 var users = JSON.parse(localStorage.getItem('users')) || [];
+
+
+var x = document.getElementById('login');
+var y = document.getElementById('register');
+var z = document.getElementById('btn');
+
+function login() {
+    x.style.left = "27px";
+    y.style.right = "-350px";
+    z.style.left = "0px";
+}
+
+function register() {
+    x.style.left = "-350px";
+    y.style.right = "25px";
+    z.style.left = "150px";
+}
+
+function myLogPassword() {
+    var a = document.getElementById("logPassword");
+    var b = document.getElementById("eye");
+    var c = document.getElementById("eye-slash");
+
+    if (a.type === "password") {
+        a.type = "text";
+        b.style.opacity = "0";
+        c.style.opacity = "1";
+    } else {
+        a.type = "password";
+        b.style.opacity = "1";
+        c.style.opacity = "0";
+    }
+}
+
+function myRegPassword() {
+    var d = document.getElementById("regPassword");
+    var b = document.getElementById("eye-2");
+    var c = document.getElementById("eye-slash-2");
+
+    if (d.type === "password") {
+        d.type = "text";
+        b.style.opacity = "0";
+        c.style.opacity = "1";
+    } else {
+        d.type = "password";
+        b.style.opacity = "1";
+        c.style.opacity = "0";
+    }
+}
 
 function signup(event) {
     event.preventDefault();
 
     var userName = document.getElementById('signupName').value;
-    var userUsername = document.getElementById('signupUsername').value;
     var userEmail = document.getElementById('signupEmail').value;
     var userPassword = document.getElementById('signupPassword').value;
 
-    console.log('Signup Data:', userName, userUsername, userEmail, userPassword);
+    console.log('Signup Data:', userName,userEmail, userPassword);
 
     var newUser = {
         id: users.length + 1,
         name: userName,
-        userUsername: userUsername,
         email: userEmail,
         password: userPassword
     };
@@ -24,7 +72,7 @@ function signup(event) {
     localStorage.setItem('users', JSON.stringify(users));
 
     alert("Signup successful! Redirecting to login page.");
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 
 function login(event) {
@@ -34,7 +82,7 @@ function login(event) {
     var loginPassword = document.getElementById('loginPassword').value;
 
     var user = users.find(function (user) {
-        return (user.email === loginUsernameEmail || user.userUsername === loginUsernameEmail) &&
+        return user.email === loginUsernameEmail  &&
                user.password === loginPassword;
     });
 
@@ -49,42 +97,17 @@ function login(event) {
 }
 
 
-// The rest of your code remains unchanged...
 
-
-
-// function login(event) {
-//     event.preventDefault();
-
-//     var loginUsernameEmail = document.getElementById('loginUsernameEmail').value;
-//     var loginPassword = document.getElementById('loginPassword').value;
-   
-//     var user = users.find(function (user) {
-//         return (user.email === loginUsernameEmail || user.name === loginUsernameEmail) &&
-//                user.password === loginPassword;
-//     });
-
-//     console.log(user)
-    
-//     if (user) {
-//         alert('Login successful!');
-        
-//         window.location.href = 'dashboard.html';
-//     } else {
-//         alert('Invalid username or password. Please try again.');
-//     }
-// }
 
 function logout() {
 
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
 }
 
 
 function displayUsers(filteredUsers) {
     var tableBody = document.querySelector('#userTable tbody');
 
-    // Check if tableBody is null before accessing its properties
     if (!tableBody) {
         console.error('Table body element not found.');
         return;
