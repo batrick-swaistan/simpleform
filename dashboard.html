@@ -14,7 +14,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#dashboard-container">Home</a></li>
+                <li><a href="#dashboard-container onclick="scrollToSection('dashboard-container')">Home</a></li>
                 <li><a href="#users">Users</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="userForm.html">User Form</a></li>
@@ -26,13 +26,29 @@
         </nav>
     </header>
 
-    <div class="dashboard-container">
+    <div class="dashboard-container" id="dashboard-container">
+
+        <div class="addUser" id="addUser">
+
+            <div>
+
+                <button onclick="addUser()">Add User</button>
+
+            </div>
+
+            <div>
+                <label for="filterInput">Filter:</label>
+                <input type="text" id="filterInput" oninput="filterUsers()">
+
+            </div>
+
+            
+            
+
+        </div>
       
         
-        <button onclick="addUser()">Add User</button>
-
-        <label for="filterInput">Filter:</label>
-        <input type="text" id="filterInput" oninput="filterUsers()">
+        
 
 
         <table id="userTable">

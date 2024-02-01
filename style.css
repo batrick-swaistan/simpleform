@@ -219,10 +219,15 @@ i{
     
     h1 {
         margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     nav {
         margin-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     
     ul {
@@ -312,6 +317,43 @@ i{
     }
     
     /* Add the following styles for the table */
+
+    .addUser {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        margin: auto;
+        padding: 25px 0;
+    }
+    
+    .addUser button {
+        background-color: #bc6202;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px 0;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .addUser button:hover {
+        background-color: #db3e00;
+    }
+    
+    .addUser label {
+        margin-right: 0px;
+    }
+    
+    .addUser input {
+        width: 200px; /* Adjust the width as needed */
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+    }
+    
     #userTable {
         width: 80%; /* Adjust the width as needed */
         margin: auto;
